@@ -7,6 +7,10 @@ autoinstall:
     realname: "Rudy Raccoon"
     password: "$y$j9T$j2fAzSBAQGAHJelab1IQb/$HbmjVhMv2xVTrMIQd7iwxZeGYik9MFn5h9StHtsKxO."
 
+  drivers:
+    install: true
+  codecs:
+    install: true
   packages:
     - vim
     - kdenlive
@@ -106,6 +110,4 @@ autoinstall:
         id: root-mount
         device: root-format
         path: /
-  late-commands:
-   -  curtin in-target -- sudo apt update 
-   -  curtin in-target -- sudo apt update 
+  
