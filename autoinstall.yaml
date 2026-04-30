@@ -1,0 +1,111 @@
+#cloud-init
+autoinstall:
+  version: 1
+  identity:
+    hostname: rudy-trashcan
+    username: rudy
+    realname: "Rudy Raccoon"
+    password: "$y$j9T$j2fAzSBAQGAHJelab1IQb/$HbmjVhMv2xVTrMIQd7iwxZeGYik9MFn5h9StHtsKxO."
+
+  packages:
+    - vim
+    - kdenlive
+    - alacritty
+    - whois
+    - git
+    - curl
+    - wget 
+    - tmux
+    - unzip
+    - htop
+    - build-essential
+    - python3
+    - ubuntu-desktop 
+    - vlc
+    - ufw
+    - obs-studio
+    - nfs-kernel-server
+    - nfs-common
+    - libreoffice
+    - firmware-linux-nonfree
+  snaps: 
+    - name: brave
+    - name: zen-browser
+    - name: discord
+      
+
+  locale: en_US.UTF-8 
+  timezone: America/Los_Angeles
+  keyboard: 
+    layout: us
+
+  ssh:
+    install-server: true
+    allow-pw: true
+  user-data:
+    users: 
+      - default
+      - name: rudy
+        gecos: "Rudy Raccoon"
+        groups: [sudo, adm, lxd]
+        shell: /bin/bash
+        sudo: ALL=(ALL:ALL) ALL
+        lock-passwd: false
+  storage:
+    layout:
+      name: direct
+    config:
+      - type: disk
+        id: disk0
+        match:
+          size: largest
+        ptable: gpt
+        wipe: superblock-recursive
+        preserve: false
+        name: ""
+        grub_device: true
+
+      - type: partition
+        id: esp
+        device: disk0
+        size: 1024M
+        flag: boot
+        grub_device: false
+
+      - type: format
+        id: esp-format
+        volume: esp
+        fstype: fat32
+
+      - type: mount
+        id: esp-mount
+        device: esp-format
+        path: /boot/efi
+
+      - type: partition
+        id: swap
+        device: disk0
+        size: 8192M
+
+      - type: format
+        id: swap-format
+        volume: swap
+        fstype: swap
+
+      - type: partition
+        id: root
+        device: disk0
+        size: -1
+
+      - type: format
+        id: root-format
+        volume: root
+        fstype: ext4
+
+      - type: mount
+        id: root-mount
+        device: root-format
+        path: /
+  late-commands:
+   -  curtin in-target -- sudo apt update 
+   -  curtin in-target -- sudo apt update 
