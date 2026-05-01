@@ -5,7 +5,7 @@ autoinstall:
     hostname: rudy-trashcan
     username: rudy
     realname: "Rudy Raccoon"
-    password: "$y$j9T$j2fAzSBAQGAHJelab1IQb/$HbmjVhMv2xVTrMIQd7iwxZeGYik9MFn5h9StHtsKxO."
+    password: "$y$j9T$cojAiYBwW6LcZuOb2Rllj1$YVfyMyxsgVMzifjHdcjJWGVPJ7d.Q/VR/1uum/rzS92"
 
   drivers:
     install: true
