@@ -31,7 +31,7 @@ autoinstall:
     - nfs-kernel-server
     - nfs-common
     - libreoffice
-    - firmware-linux-nonfree
+    - linux-firmware-nonfree
   snaps: 
     - name: brave
     - name: zen-browser
