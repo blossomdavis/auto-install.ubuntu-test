@@ -2,16 +2,17 @@
 autoinstall:
   version: 1
   identity:
-    hostname: rudy-trashcan
-    username: rudy
-    realname: "Rudy Raccoon"
-    password: "$y$j9T$cojAiYBwW6LcZuOb2Rllj1$YVfyMyxsgVMzifjHdcjJWGVPJ7d.Q/VR/1uum/rzS92"
+    hostname: blossom.boll
+    username: blossom-auto
+    realname: "blossom"
+    password: "$1$ffQS0q8R$ix/w0XHjfNSn1B.ogzXaS0"
 
   drivers:
     install: true
   codecs:
     install: true
   packages:
+    - virtualbox
     - vim
     - kdenlive
     - alacritty
@@ -28,29 +29,28 @@ autoinstall:
     - vlc
     - ufw
     - obs-studio
-    - nfs-kernel-server
     - nfs-common
     - libreoffice
     - linux-firmware-nonfree
   snaps: 
     - name: brave
-    - name: zen-browser
     - name: discord
+    - name: spotify
       
 
-  locale: en_US.UTF-8 
-  timezone: America/Los_Angeles
+  locale: sv_SE.UTF-8 
+  timezone: Europe/Stockholm
   keyboard: 
-    layout: us
+    layout: se
 
   ssh:
     install-server: true
-    allow-pw: true
+    allow-pw: false
   user-data:
     users: 
       - default
-      - name: rudy
-        gecos: "Rudy Raccoon"
+      - name: blossom-auto
+        gecos: "blossom"
         groups: [sudo, adm, lxd]
         shell: /bin/bash
         sudo: ALL=(ALL:ALL) ALL
@@ -110,4 +110,4 @@ autoinstall:
         id: root-mount
         device: root-format
         path: /
-  
+
